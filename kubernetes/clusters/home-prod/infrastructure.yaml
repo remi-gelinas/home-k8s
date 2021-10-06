@@ -8,6 +8,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/home-prod
+  path: ./kubernetes/infrastructure/home-prod
   prune: true
   validation: client
