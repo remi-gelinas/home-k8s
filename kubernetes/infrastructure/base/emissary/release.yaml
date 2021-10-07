@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ambassador
+spec:
+  chart:
+    spec:
+      chart: ambassador
+      sourceRef:
+        kind: HelmRepository
+        name: datawire
+        namespace: flux-system
+      version: 6.9.3
+  interval: 10m0s
