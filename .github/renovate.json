@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "timezone": "America/Toronto",
+  "schedule": [
+    "every weekend"
+  ],
+  "includePaths": [
+    "kubernetes"
+  ]
+}
