@@ -11,4 +11,6 @@ spec:
         name: jetstack
         namespace: flux-system
       version: v1.5.3
+  values:
+    installCRDs: true
   interval: 10m0s
