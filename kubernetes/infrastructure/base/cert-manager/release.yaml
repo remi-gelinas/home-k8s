@@ -13,4 +13,8 @@ spec:
       version: v1.5.3
   values:
     installCRDs: true
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
   interval: 10m0s

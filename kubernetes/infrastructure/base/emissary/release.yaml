@@ -13,4 +13,8 @@ spec:
       version: 6.9.3
   values:
     enableAES: false
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
   interval: 10m0s
