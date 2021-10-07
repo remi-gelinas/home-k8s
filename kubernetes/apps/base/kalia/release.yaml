@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kalia
+spec:
+  chart:
+    spec:
+      chart: kalia-server
+      sourceRef:
+        kind: HelmRepository
+        name: kalia
+        namespace: flux-system
+      version: 1.41.0
+  interval: 10m0s
