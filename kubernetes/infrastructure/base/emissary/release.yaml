@@ -11,6 +11,6 @@ spec:
         name: datawire
         namespace: flux-system
       version: 6.9.3
-      values:
-        enableAES: false
+  values:
+    enableAES: false
   interval: 10m0s
