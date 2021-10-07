@@ -3,3 +3,9 @@ kind: Kustomization
 namespace: istio-system
 resources:
   - release.yaml
+configMapGenerator:
+  - name: kiali-values
+    files:
+      - values.yaml
+configurations:
+  - kustomizeconfig.yaml

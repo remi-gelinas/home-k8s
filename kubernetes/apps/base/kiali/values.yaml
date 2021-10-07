@@ -1,0 +1,4 @@
+deployment:
+  instance_name: kiali
+auth:
+  strategy: anonymous
