@@ -33,12 +33,12 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: gateway
+  name: cni
   namespace: flux-system
 spec:
   chart:
     spec:
-      chart: gateway
+      chart: cni
       sourceRef:
         kind: HelmRepository
         name: istio
