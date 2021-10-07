@@ -6,3 +6,4 @@ resources:
   - datawire.yaml
   - jetstack.yaml
   - sealed-secrets.yaml
+  - kiali.yaml
