@@ -11,9 +11,9 @@ spec:
         name: kiali
         namespace: flux-system
       version: 1.41.0
-    values:
-      deployment:
-        instance_name: kiali
-      auth:
-        strategy: anonymous
+  values:
+    deployment:
+      instance_name: kiali
+    auth:
+      strategy: anonymous
   interval: 10m0s
