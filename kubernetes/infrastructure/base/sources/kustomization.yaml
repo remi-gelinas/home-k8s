@@ -5,3 +5,4 @@ resources:
   - istio.yaml
   - datawire.yaml
   - jetstack.yaml
+  - sealed-secrets.yaml
