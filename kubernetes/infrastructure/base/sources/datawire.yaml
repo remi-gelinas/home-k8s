@@ -4,4 +4,4 @@ metadata:
   name: datawire
 spec:
   interval: 10m0s
-  url: https://www.getambassador.io
+  url: https://app.getambassador.io
