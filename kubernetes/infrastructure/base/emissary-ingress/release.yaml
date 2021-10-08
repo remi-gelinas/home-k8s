@@ -1,18 +1,16 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: ambassador
+  name: emissary-ingress
 spec:
   chart:
     spec:
-      chart: ambassador
+      chart: emissary-ingress
       sourceRef:
         kind: HelmRepository
         name: datawire
         namespace: flux-system
-      version: 6.9.3
-  values:
-    enableAES: false
+      version: 7.1.8-ea
   install:
     crds: CreateReplace
   upgrade:
