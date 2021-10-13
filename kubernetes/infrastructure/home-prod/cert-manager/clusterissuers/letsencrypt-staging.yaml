@@ -15,6 +15,6 @@ spec:
             apiKeySecretRef:
               name: cloudflare-api-key
               key: apikey
-          selector:
-            dnsZones:
-              - "gelinas.cloud"
+        selector:
+          dnsZones:
+            - "gelinas.cloud"
