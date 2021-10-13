@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: cert-manager
 resources:
   - clusterissuers
-  - cloudflare-api-key.yaml
+  - cloudflare-api-token.yaml
