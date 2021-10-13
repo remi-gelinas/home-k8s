@@ -14,7 +14,4 @@ spec:
             email: mail@remigelin.as
             apiKeySecretRef:
               name: cloudflare-api-key
-              key: apikey
-        selector:
-          dnsZones:
-            - "gelinas.cloud"
+              key: api-key
