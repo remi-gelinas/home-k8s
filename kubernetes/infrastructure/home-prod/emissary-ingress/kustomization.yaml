@@ -3,3 +3,5 @@ kind: Kustomization
 namespace: emissary
 resources:
   - certificate.yaml
+  - listeners.yaml
+  - hosts.yaml

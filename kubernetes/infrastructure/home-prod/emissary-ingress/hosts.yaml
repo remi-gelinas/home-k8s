@@ -1,0 +1,23 @@
+apiVersion: x.getambassador.io/v3alpha1
+kind: AmbassadorHost
+metadata:
+  name: gelinas-cloud-apex
+spec:
+  hostname: gelinas.cloud
+  tlsSecret:
+    name: gelinas-cloud-tls
+  selector:
+    matchLabels:
+      host: gelinas-cloud
+---
+apiVersion: x.getambassador.io/v3alpha1
+kind: AmbassadorHost
+metadata:
+  name: gelinas-cloud-subdomains
+spec:
+  hostname: "*.gelinas.cloud"
+  tlsSecret:
+    name: gelinas-cloud-tls
+  selector:
+    matchLabels:
+      host: gelinas-cloud-subdomain
