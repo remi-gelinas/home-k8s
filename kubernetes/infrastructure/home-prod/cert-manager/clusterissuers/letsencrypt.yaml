@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    email: mail@remigelin.as
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+      - dns01:
+          cloudflare:
+            email: mail@remigelin.as
+            apiKeySecretRef:
+              name: cloudflare-dns-token
+              key: apikey
