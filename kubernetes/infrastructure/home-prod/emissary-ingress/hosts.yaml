@@ -9,6 +9,9 @@ spec:
   selector:
     matchLabels:
       host: gelinas-cloud
+  requestPolicy:
+    insecure:
+      action: Redirect
 ---
 apiVersion: x.getambassador.io/v3alpha1
 kind: AmbassadorHost
@@ -21,3 +24,6 @@ spec:
   selector:
     matchLabels:
       host: gelinas-cloud-subdomain
+  requestPolicy:
+    insecure:
+      action: Redirect

@@ -15,4 +15,5 @@ spec:
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
+    force: true
   interval: 10m0s
