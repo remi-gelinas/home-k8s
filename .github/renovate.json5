@@ -4,6 +4,9 @@
   "semanticCommits": "enabled",
   "dependencyDashboard": true,
   "commitBody": "Signed-off-by: remi-gelinas <mail@remigelin.as>",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "commitMessageSuffix": "",
   "rebaseWhen": "conflicted",
   "kubernetes": {
     "fileMatch": ["kubernetes/.+\\.yaml$"]
@@ -20,7 +23,7 @@
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
       ],
-      datasourceTemplate: "helm"
+      "datasourceTemplate": "helm"
     }
   ],
   "packageRules": [
@@ -34,19 +37,19 @@
       "matchDatasources": ["helm"],
       "matchUpdateTypes": ["major"],
       "commitMessagePrefix": "feat(charts): ",
-      labels: ["renovate/helm", "dependencies/major"]
+      "labels": ["renovate/helm", "dependencies/major"]
     },
     {
       "matchDatasources": ["helm"],
       "matchUpdateTypes": ["minor"],
       "commitMessagePrefix": "feat(charts): ",
-      labels: ["renovate/helm", "dependencies/minor"]
+      "labels": ["renovate/helm", "dependencies/minor"]
     },
     {
       "matchDatasources": ["helm"],
       "matchUpdateTypes": ["patch"],
       "commitMessagePrefix": "fix(charts): ",
-      labels: ["renovate/helm", "dependencies/patch"]
+      "labels": ["renovate/helm", "dependencies/patch"]
     }
   ]
 }
