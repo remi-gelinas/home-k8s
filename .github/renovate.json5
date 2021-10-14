@@ -1,7 +1,4 @@
 {
-  "extends": [
-    "config:base"
-  ],
   "enabled": true,
   "timezone": "America/Toronto",
   "semanticCommits": "enabled",
