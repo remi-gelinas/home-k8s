@@ -7,11 +7,11 @@ spec:
     spec:
       # renovate: registryUrl=https://app.getambassador.io
       chart: emissary-ingress
+      version: 7.1.8-ea
       sourceRef:
         kind: HelmRepository
         name: datawire
         namespace: flux-system
-      version: 7.1.8-ea
   install:
     crds: CreateReplace
   upgrade:
