@@ -7,7 +7,7 @@ spec:
     spec:
       # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts
       chart: base
-      version: 1.12.0-alpha.5
+      version: 1.12.0-alpha.1
       sourceRef:
         kind: HelmRepository
         name: istio
@@ -27,7 +27,7 @@ spec:
     spec:
       # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts
       chart: istiod
-      version: 1.12.0-alpha.5
+      version: 1.12.0-alpha.1
       sourceRef:
         kind: HelmRepository
         name: istio
@@ -47,7 +47,7 @@ spec:
     spec:
       # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts
       chart: cni
-      version: 1.12.0-alpha.5
+      version: 1.12.0-alpha.1
       sourceRef:
         kind: HelmRepository
         name: istio
