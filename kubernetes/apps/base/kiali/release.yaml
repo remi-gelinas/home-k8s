@@ -5,6 +5,7 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://kiali.org/helm-charts
       chart: kiali-server
       sourceRef:
         kind: HelmRepository

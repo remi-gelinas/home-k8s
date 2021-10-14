@@ -5,6 +5,7 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://app.getambassador.io
       chart: emissary-ingress
       sourceRef:
         kind: HelmRepository

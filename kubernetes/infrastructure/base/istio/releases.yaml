@@ -5,6 +5,7 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts
       chart: base
       sourceRef:
         kind: HelmRepository
@@ -24,6 +25,7 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts
       chart: istiod
       sourceRef:
         kind: HelmRepository
@@ -43,6 +45,7 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts
       chart: cni
       sourceRef:
         kind: HelmRepository
