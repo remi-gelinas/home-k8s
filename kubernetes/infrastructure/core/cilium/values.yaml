@@ -1,0 +1,4 @@
+rollOutCiliumPods: true
+cni:
+  install: true
+  exclusive: true

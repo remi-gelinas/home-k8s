@@ -1,0 +1,7 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: cilium
+spec:
+  interval: 10m0s
+  url: https://helm.cilium.io/
