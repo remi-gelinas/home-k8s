@@ -16,5 +16,5 @@ spec:
     force: true
   valuesFrom:
     - kind: ConfigMap
-      name: cilium-values
+      name: cilium-base-values
   interval: 10m0s
