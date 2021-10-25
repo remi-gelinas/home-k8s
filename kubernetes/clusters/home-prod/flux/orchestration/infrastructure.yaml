@@ -19,6 +19,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  dependsOn:
+    - name: cert-manager
   path: ./kubernetes/clusters/home-prod/infrastructure/emissary-ingress
   prune: true
   wait: true
