@@ -10,4 +10,4 @@ spec:
   wait: true
   sourceRef:
     kind: GitRepository
-    name: homelab
+    name: home-k8s
