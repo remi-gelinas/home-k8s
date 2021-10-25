@@ -1,7 +1,7 @@
----
+# Shamelessly stolen from https://github.com/onedr0p/home-cluster/blob/main/.github/workflows/diff-helm-releases.yaml
 name: Diff Helm Releases on Pull Requests
 
-on: # yamllint disable-line rule:truthy
+on:
   pull_request:
     branches:
       - trunk
