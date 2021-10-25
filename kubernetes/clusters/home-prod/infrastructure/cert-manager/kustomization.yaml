@@ -3,5 +3,5 @@ kind: Kustomization
 namespace: cert-manager
 resources:
   - ../../../../common/infrastructure/cert-manager
-  - clusterissuers
-  - cloudflare-api-token.yaml
+  - ./clusterissuers
+  - ./secret.sops.yaml
