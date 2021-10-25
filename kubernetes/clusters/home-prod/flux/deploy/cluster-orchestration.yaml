@@ -18,3 +18,16 @@ spec:
     provider: sops
     secretRef:
       name: sops-age
+  patches:
+    - patch: |-
+        apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+        kind: Kustomization
+        spec:
+          decryption:
+            provider: sops
+            secretRef:
+              name: sops-gpg
+      target:
+        kind: Kustomization
+        group: kustomize.toolkit.fluxcd.io
+        version: v1beta2
