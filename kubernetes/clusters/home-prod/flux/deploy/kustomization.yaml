@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ./cluster-repositories.yaml
   - ./manage-flux.yaml
-  - ./cluster-orchestration.yaml
+  - ./cluster-orchestration
