@@ -67,7 +67,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./kubernetes/common/infrstructure/istio
+  path: ./kubernetes/common/infrastructure/istio
   prune: true
   wait: true
   sourceRef:
