@@ -2,11 +2,41 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
+  name: cert-manager-common
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./kubernetes/common/infrastructure/cert-manager
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: home-k8s
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
   name: cert-manager
   namespace: flux-system
 spec:
   interval: 10m0s
+  dependsOn:
+    - name: cert-manager-common
   path: ./kubernetes/clusters/home-prod/infrastructure/cert-manager
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: home-k8s
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: emissary-ingress-common
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./kubernetes/clusters/home-prod/infrastructure/emissary-ingress
   prune: true
   wait: true
   sourceRef:
@@ -22,6 +52,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name: cert-manager
+    - name: emissary-ingress-common
   path: ./kubernetes/clusters/home-prod/infrastructure/emissary-ingress
   prune: true
   wait: true
@@ -32,11 +63,11 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: istio
+  name: istio-common
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./kubernetes/clusters/home-prod/infrastructure/istio
+  path: ./kubernetes/common/infrstructure/istio
   prune: true
   wait: true
   sourceRef:
