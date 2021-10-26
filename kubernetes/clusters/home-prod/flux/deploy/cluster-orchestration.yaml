@@ -22,13 +22,14 @@ spec:
     - patch: |-
         apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
         kind: Kustomization
+        metadata:
           name: not-used
           namespace: not-used
         spec:
           decryption:
             provider: sops
             secretRef:
-              name: sops-gpg
+              name: sops-age
       target:
         kind: Kustomization
         group: kustomize.toolkit.fluxcd.io
