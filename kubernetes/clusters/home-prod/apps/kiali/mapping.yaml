@@ -1,4 +1,4 @@
-apiVersion: x.getambassador.io/v3alpha1
+apiVersion: getambassador.io/v3alpha1
 kind:  AmbassadorMapping
 metadata:
   name:  kiali-mapping

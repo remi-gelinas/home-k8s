@@ -1,4 +1,4 @@
-apiVersion: x.getambassador.io/v3alpha1
+apiVersion: getambassador.io/v3alpha1
 kind: AmbassadorHost
 metadata:
   name: gelinas-cloud-apex
@@ -13,7 +13,7 @@ spec:
     insecure:
       action: Redirect
 ---
-apiVersion: x.getambassador.io/v3alpha1
+apiVersion: getambassador.io/v3alpha1
 kind: AmbassadorHost
 metadata:
   name: gelinas-cloud-subdomains

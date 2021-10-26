@@ -1,4 +1,4 @@
-apiVersion: x.getambassador.io/v3alpha1
+apiVersion: getambassador.io/v3alpha1
 kind: AmbassadorListener
 metadata:
   name: http-listener
@@ -10,7 +10,7 @@ spec:
     namespace:
       from: SELF
 ---
-apiVersion: x.getambassador.io/v3alpha1
+apiVersion: getambassador.io/v3alpha1
 kind: AmbassadorListener
 metadata:
   name: https-listener
