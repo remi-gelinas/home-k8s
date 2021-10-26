@@ -12,9 +12,4 @@ spec:
         kind: HelmRepository
         name: datawire
         namespace: flux-system
-  install:
-    crds: CreateReplace
-  upgrade:
-    crds: CreateReplace
-    force: true
   interval: 10m0s

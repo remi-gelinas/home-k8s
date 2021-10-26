@@ -11,10 +11,4 @@ spec:
         kind: HelmRepository
         name: jetstack
         namespace: flux-system
-  values:
-    installCRDs: true
-  install:
-    crds: CreateReplace
-  upgrade:
-    crds: CreateReplace
   interval: 10m0s
