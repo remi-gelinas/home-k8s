@@ -1,5 +1,5 @@
 apiVersion: getambassador.io/v3alpha1
-kind: AmbassadorListener
+kind: Listener
 metadata:
   name: http-listener
 spec:
@@ -11,7 +11,7 @@ spec:
       from: SELF
 ---
 apiVersion: getambassador.io/v3alpha1
-kind: AmbassadorListener
+kind: Listener
 metadata:
   name: https-listener
 spec:

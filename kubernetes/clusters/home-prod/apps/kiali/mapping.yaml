@@ -1,5 +1,5 @@
 apiVersion: getambassador.io/v3alpha1
-kind:  AmbassadorMapping
+kind: Mapping
 metadata:
   name:  kiali-mapping
   labels:
