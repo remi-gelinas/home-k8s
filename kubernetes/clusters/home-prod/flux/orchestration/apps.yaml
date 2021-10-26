@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 10m0s
   dependsOn:
-    - name: istio
+    - name: istio-common
     - name: emissary-ingress
   path: ./kubernetes/clusters/home-prod/apps/kiali
   prune: true
