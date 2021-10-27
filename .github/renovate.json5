@@ -45,7 +45,7 @@
         "kubernetes/common/emissary-ingress/crds.yaml"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n.*?\n.*?\n\s*?tag:\schart-v(?<currentValue>.*?)$"
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n\s*?tag:\schart-v(?<currentValue>.*)"
       ],
       "datasourceTemplate": "helm"
     },
@@ -57,7 +57,7 @@
         "kubernetes/common/istio/crds.yaml"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n.*?\n.*?\n\s*?tag:(?<currentValue>.*?)$"
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\s(?<currentValue>.*)",
       ],
       "datasourceTemplate": "helm"
     }

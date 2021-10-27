@@ -6,9 +6,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  # renovate: registryUrl=https://app.getambassador.io chart=emissary-ingress
   url: https://github.com/emissary-ingress/emissary.git
   ref:
+    # renovate: registryUrl=https://app.getambassador.io chart=emissary-ingress
     tag: chart-v7.1.9
   ignore: |
     /*

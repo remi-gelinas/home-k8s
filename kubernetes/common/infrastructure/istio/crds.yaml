@@ -6,9 +6,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts chart=base
   url: https://github.com/istio/istio.git
   ref:
+    # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts chart=base
     tag: 1.11.4
   ignore: |
     /*
