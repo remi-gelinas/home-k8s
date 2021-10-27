@@ -21,7 +21,7 @@
         "kubernetes/.+\\.yaml$"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
+        "registryUrl=(?<registryUrl>.*?)\\n *chart: (?<depName>.*?)\\n *version: (?<currentValue>.*)\\n"
       ],
       "datasourceTemplate": "helm"
     },
@@ -33,7 +33,7 @@
         "kubernetes/common/cert-manager/crds/.+\\.yaml$"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n.*\\/(?<currentValue>.*?)\\/"
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*\\/(?<currentValue>.*?)\\/"
       ],
       "datasourceTemplate": "helm"
     },
@@ -45,7 +45,7 @@
         "kubernetes/common/emissary-ingress/crds.yaml"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n\s*?tag:\schart-v(?<currentValue>.*)"
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\schart-v(?<currentValue>.*)"
       ],
       "datasourceTemplate": "helm"
     },
@@ -57,7 +57,7 @@
         "kubernetes/common/istio/crds.yaml"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n\s*?tag:\s(?<currentValue>.*)",
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\s(?<currentValue>.*)",
       ],
       "datasourceTemplate": "helm"
     }
