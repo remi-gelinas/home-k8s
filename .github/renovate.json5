@@ -24,6 +24,18 @@
         "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
       ],
       "datasourceTemplate": "helm"
+    },
+    /*
+    * CRD manager: cert-manager
+    */
+    {
+      "fileMatch": [
+        "kubernetes/common/cert-manager/crds/.+\\.yaml$"
+      ],
+      "matchStrings": [
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n.*\\/(?<currentValue>.*?)\\/"
+      ],
+      "datasourceTemplate": "helm"
     }
   ],
   "packageRules": [
