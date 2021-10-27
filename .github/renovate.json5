@@ -57,7 +57,7 @@
         "kubernetes/common/istio/crds.yaml"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\s(?<currentValue>.*)",
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n\s*?tag:\s(?<currentValue>.*)",
       ],
       "datasourceTemplate": "helm"
     }
