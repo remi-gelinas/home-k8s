@@ -12,20 +12,7 @@ spec:
     tag: chart-v7.1.9
   ignore: |
     /*
-    !/charts/emissary-ingress/crds/getambassador.io_authservices.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_consulresolvers.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_devportals.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_hosts.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_kubernetesendpointresolvers.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_kubernetesserviceresolvers.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_listeners.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_logservices.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_mappings.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_modules.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_ratelimitservices.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_tcpmappings.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_tlscontexts.yaml
-    !/charts/emissary-ingress/crds/getambassador.io_tracingservices.yaml
+    !/charts/emissary-ingress/crds/*
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
