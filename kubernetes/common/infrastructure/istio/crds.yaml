@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  # renovate: datasource=github-releases
+  # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts chart=base
   url: https://github.com/istio/istio.git
   ref:
     tag: 1.11.4
@@ -14,8 +14,7 @@ spec:
     /*
 
     # Base chart CRDs
-    !/manifests/charts/base/crds/crd-all.gen.yaml
-    !/manifests/charts/base/crds/crd-operator.yaml
+    !/manifests/charts/base/crds/*.yaml
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization

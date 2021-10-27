@@ -48,6 +48,18 @@
         "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n.*?\n.*?\n\s*?tag:\schart-v(?<currentValue>.*?)$"
       ],
       "datasourceTemplate": "helm"
+    },
+    /*
+    * CRD manager: istio
+    */
+    {
+      "fileMatch": [
+        "kubernetes/common/istio/crds.yaml"
+      ],
+      "matchStrings": [
+        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n.*?\n.*?\n\s*?tag:(?<currentValue>.*?)$"
+      ],
+      "datasourceTemplate": "helm"
     }
   ],
   "packageRules": [
