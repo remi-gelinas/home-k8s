@@ -30,7 +30,7 @@
     */
     {
       "fileMatch": [
-        "kubernetes/common/cert-manager/crds/.+\\.yaml$"
+        "kubernetes/common/infrastructure/cert-manager/crds/.+\\.yaml$"
       ],
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*\\/(?<currentValue>.*?)\\/"
@@ -42,7 +42,7 @@
     */
     {
       "fileMatch": [
-        "kubernetes/common/emissary-ingress/crds.yaml"
+        "kubernetes/common/infrastructure/emissary-ingress/crds.yaml"
       ],
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\schart-v(?<currentValue>.*)"
@@ -54,7 +54,7 @@
     */
     {
       "fileMatch": [
-        "kubernetes/common/istio/crds.yaml"
+        "kubernetes/common/infrastructure/istio/crds.yaml"
       ],
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\s(?<currentValue>.*)",
