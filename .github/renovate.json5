@@ -89,7 +89,7 @@
     },
     {
       "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["patch"],
       "automerge": true,
       "automergeType": "branch"
     }
