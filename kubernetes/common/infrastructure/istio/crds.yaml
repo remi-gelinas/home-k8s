@@ -9,7 +9,7 @@ spec:
   url: https://github.com/istio/istio.git
   ref:
     # renovate: registryUrl=https://istio-release.storage.googleapis.com/charts chart=base
-    tag: 1.11.4
+    tag: 1.12.0-alpha.1
   ignore: |
     /*
     !/manifests/charts/base/crds
