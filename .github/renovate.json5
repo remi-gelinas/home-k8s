@@ -92,6 +92,11 @@
       "matchUpdateTypes": ["patch"],
       "automerge": true,
       "automergeType": "branch"
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["base", "istiod"],
+      "automerge": false
     }
   ]
 }
