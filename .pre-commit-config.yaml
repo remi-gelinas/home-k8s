@@ -1,0 +1,39 @@
+repos:
+    -   repo:  https://github.com/psf/black
+        rev:   21.10b0
+        hooks:
+            - id: black
+
+    -   repo: https://github.com/google/go-jsonnet
+        rev: b10eae7c683a26fad7f7fe53f9772c806f81a0b0
+        hooks:
+            -   id: jsonnet-format
+            -   id: jsonnet-lint
+
+    -   repo: local
+        hooks:
+            - id: generate-manifests
+              name: Generate manifests
+              description: This hook compiles Jsonnet manifests into raw YAML.
+              entry: scripts/gen_configs.py
+              language: python
+              language_version: 3.10.0
+              always_run: true
+
+    -   repo: https://github.com/adrienverge/yamllint.git
+        rev: v1.26.3
+        hooks:
+            -   id: yamllint
+                args: [--format, parsable, --strict]
+
+    -   repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+        rev: 0.1.0
+        hooks:
+            -   id: yamlfmt
+
+    -   repo: https://github.com/pre-commit/pre-commit-hooks
+        rev: v4.0.1
+        hooks:
+            -   id: trailing-whitespace
+            -   id: end-of-file-fixer
+            -   id: check-added-large-files
