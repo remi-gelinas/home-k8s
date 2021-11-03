@@ -1,0 +1,3 @@
+{
+    kustomization: (import 'kustomization.libsonnet')
+}

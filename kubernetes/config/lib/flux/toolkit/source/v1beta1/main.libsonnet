@@ -1,0 +1,3 @@
+{
+    gitRepository: (import 'gitRepository.libsonnet')
+}
