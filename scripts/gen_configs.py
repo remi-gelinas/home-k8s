@@ -5,6 +5,9 @@ import subprocess
 import json
 import yaml
 import pathlib
+import shutil
+import re
+from constants import repoRoot, outDir, baseDir, libDir
 
 
 def replacePaths(inPath, outPath):
@@ -22,6 +25,10 @@ def replacePaths(inPath, outPath):
                 .joinpath(*outPath.parts[:nextIndex])
                 .joinpath(*inPath.parts[nextIndex:])
             )
+
+def genSentinelExists(filePath):
+    with filePath.open('r') as manifest:
+        return re.match(r"^#\s*skip-gen\s*$", manifest.readline())
 
 
 def getManifests(files, extract):
@@ -48,6 +55,7 @@ def extractMulti(filePath, json):
             yaml.dump(content),
         )
         for (fileName, content) in json.items()
+        if not genSentinelExists(filePath)
     ]
 
 
@@ -63,22 +71,8 @@ def extractSingle(filePath, json):
     ]
 
 
-repoRoot = pathlib.Path(__file__).parent.parent.resolve()
-
-baseDir = repoRoot / "kubernetes" / "config"
-outDir = repoRoot / "kubernetes" / "_gen"
-libDir = repoRoot / "kubernetes" / "config" / "lib"
-
-
 def cleanOutDir():
-    subprocess.run(
-        [
-            'rm',
-            '-rf',
-            outDir,
-        ],
-        shell=True
-    )
+    shutil.rmtree(outDir)
 
 
 jsonnetCommand = ["jsonnet", "-J", libDir]
@@ -90,7 +84,8 @@ for filePath in baseDir.glob("**/*.jsonnet"):
     ) else jsonnetFiles.append(filePath)
 
 try:
-    cleanOutDir()
+    if os.path.exists(outDir):
+        cleanOutDir()
 
     manifests = getManifests(jsonnetMultiFiles, extractMulti) + getManifests(
         jsonnetFiles, extractSingle
@@ -105,9 +100,6 @@ try:
         with file.open("w") as manifest:
             manifest.write("---\n")
             manifest.write(content)
-
-    if "HOOK_MODE" in os.environ:
-        subprocess.run(["git", "add", outDir.relative_to(repoRoot)], cwd=repoRoot)
 
 except Exception as e:
     cleanOutDir()
