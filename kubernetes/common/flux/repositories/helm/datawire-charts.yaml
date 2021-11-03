@@ -1,8 +1,9 @@
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: datawire
-  namespace: flux-system
+    name: datawire
+    namespace: flux-system
 spec:
-  interval: 10m0s
-  url: https://app.getambassador.io
+    interval: 10m0s
+    url: https://app.getambassador.io

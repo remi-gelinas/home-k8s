@@ -1,9 +1,10 @@
+---
 apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
-  name:  kiali-mapping
-  labels:
-    host: gelinas-cloud
+    name: kiali-mapping
+    labels:
+        host: gelinas-cloud
 spec:
-  prefix: /kiali/
-  service: kiali
+    prefix: /kiali/
+    service: kiali
