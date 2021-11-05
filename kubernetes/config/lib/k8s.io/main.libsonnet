@@ -1,3 +1,3 @@
 {
-    config: (import 'config/main.libsonnet')
+  config: (import 'config/main.libsonnet'),
 }

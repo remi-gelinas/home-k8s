@@ -1,0 +1,3 @@
+[submodule "kubernetes/config/lib/vendor/k8s-libsonnet"]
+	path = kubernetes/config/lib/vendor/k8s-libsonnet
+	url = git@github.com:jsonnet-libs/k8s-libsonnet.git

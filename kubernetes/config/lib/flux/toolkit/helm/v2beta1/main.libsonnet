@@ -1,3 +1,0 @@
-{
-    helmRelease: (import 'helmRelease.libsonnet')
-}

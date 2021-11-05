@@ -12,40 +12,17 @@
     "fileMatch": ["kubernetes/.+\\.yaml$"]
   },
   "regexManagers": [
-
     /*
-    *  HelmRelease manager
+    * Helm Chart variable manager
+    * Manages Helm chart version updates for Jsonnet local variables.
+    * Example: local chartTag = 'v1.6.1';
     */
     {
       "fileMatch": [
-        "kubernetes/.+\\.yaml$"
+        "kubernetes/config/.+\\.yaml$"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?)\\n *chart: (?<depName>.*?)\\n *version: (?<currentValue>.*)\\n"
-      ],
-      "datasourceTemplate": "helm"
-    },
-    /*
-    * CRD manager: cert-manager
-    */
-    {
-      "fileMatch": [
-        "kubernetes/common/infrastructure/cert-manager/crds/.+\\.yaml$"
-      ],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*\\/(?<currentValue>.*?)\\/"
-      ],
-      "datasourceTemplate": "helm"
-    },
-    /*
-    * CRD manager: emissary-ingress
-    */
-    {
-      "fileMatch": [
-        "kubernetes/common/infrastructure/emissary-ingress/crds.yaml"
-      ],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\schart-v(?<currentValue>.*)"
+        "helmChartVar registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*['\"](?<currentValue>.*?)['\"]"
       ],
       "datasourceTemplate": "helm"
     },
@@ -60,7 +37,7 @@
         "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\s(?<currentValue>.*)",
       ],
       "datasourceTemplate": "helm"
-    }
+    },
   ],
   "packageRules": [
     {

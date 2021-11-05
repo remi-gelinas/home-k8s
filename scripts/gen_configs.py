@@ -1,13 +1,14 @@
 #!/usr/local/bin/python
 
-import os
 import subprocess
 import json
-import yaml
+from ruamel.yaml import YAML
 import pathlib
 import shutil
 import re
 from constants import repoRoot, outDir, baseDir, libDir
+
+yaml = YAML()
 
 
 def replacePaths(inPath, outPath):
@@ -26,8 +27,9 @@ def replacePaths(inPath, outPath):
                 .joinpath(*inPath.parts[nextIndex:])
             )
 
+
 def genSentinelExists(filePath):
-    with filePath.open('r') as manifest:
+    with filePath.open("r") as manifest:
         return re.match(r"^#\s*skip-gen\s*$", manifest.readline())
 
 
@@ -52,7 +54,7 @@ def extractMulti(filePath, json):
     return [
         (
             replacePaths(pathlib.Path() / base / f"{fileName}.yaml", outDir),
-            yaml.dump(content),
+            content,
         )
         for (fileName, content) in json.items()
         if not genSentinelExists(filePath)
@@ -72,7 +74,8 @@ def extractSingle(filePath, json):
 
 
 def cleanOutDir():
-    shutil.rmtree(outDir)
+    if outDir.exists():
+        shutil.rmtree(outDir, ignore_errors=True)
 
 
 jsonnetCommand = ["jsonnet", "-J", libDir]
@@ -84,8 +87,7 @@ for filePath in baseDir.glob("**/*.jsonnet"):
     ) else jsonnetFiles.append(filePath)
 
 try:
-    if os.path.exists(outDir):
-        cleanOutDir()
+    cleanOutDir()
 
     manifests = getManifests(jsonnetMultiFiles, extractMulti) + getManifests(
         jsonnetFiles, extractSingle
@@ -94,12 +96,14 @@ try:
     for file, content in manifests:
         path = pathlib.Path().joinpath(*file.parts[:-1])
 
-        if not os.path.exists(path):
-            os.makedirs(path)
+        if not path.exists():
+            path.mkdir(parents=True)
 
         with file.open("w") as manifest:
-            manifest.write("---\n")
-            manifest.write(content)
+            with YAML(output=manifest) as yaml:
+                manifest.write("# GENERATED - DO NOT EDIT\n")
+                manifest.write("---\n")
+                yaml.dump(content)
 
 except Exception as e:
     cleanOutDir()

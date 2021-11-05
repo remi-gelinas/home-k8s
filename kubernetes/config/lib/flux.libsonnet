@@ -1,1 +1,1 @@
-import "flux/main.libsonnet"
+import 'fluxcd.io/main.libsonnet'

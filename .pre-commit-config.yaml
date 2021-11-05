@@ -9,7 +9,9 @@ repos:
       rev: b10eae7c683a26fad7f7fe53f9772c806f81a0b0
       hooks:
           - id: jsonnet-format
-          - id: jsonnet-lint
+          # Disabled temporarily due to https://github.com/google/go-jsonnet/issues/544
+          #- id: jsonnet-lint
+            #args: [-J, kubernetes/config/lib]
 
     - repo: local
       hooks:
@@ -19,7 +21,10 @@ repos:
             entry: scripts/gen_configs.py
             language: python
             language_version: 3.10.0
+            additional_dependencies:
+                - ruamel.yaml
             always_run: true
+            pass_filenames: false
 
     - repo: https://github.com/adrienverge/yamllint.git
       rev: v1.26.3
@@ -41,6 +46,7 @@ repos:
             language: python
             language_version: 3.10.0
             always_run: true
+            pass_filenames: false
 
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.0.1

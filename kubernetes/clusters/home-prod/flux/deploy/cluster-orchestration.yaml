@@ -3,13 +3,13 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
     name: cluster-orchestration
-    namespace: flux-system
+    namespace: fluxcd.io-system
 spec:
     interval: 10m0s
     dependsOn:
         - name: cluster-repositories
-        - name: cluster-flux
-    path: ./kubernetes/clusters/home-prod/flux/orchestration
+        - name: cluster-fluxcd.io
+    path: ./kubernetes/clusters/home-prod/fluxcd.io/orchestration
     prune: true
     wait: true
     sourceRef:

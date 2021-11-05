@@ -1,3 +1,3 @@
 {
-    kustomize: (import 'kustomize/main.libsonnet')
+  kustomize: (import 'kustomize/main.libsonnet'),
 }

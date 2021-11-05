@@ -12,7 +12,7 @@ spec:
             sourceRef:
                 kind: HelmRepository
                 name: kiali
-                namespace: flux-system
+                namespace: fluxcd.io-system
     valuesFrom:
         - kind: ConfigMap
           name: kiali-values
