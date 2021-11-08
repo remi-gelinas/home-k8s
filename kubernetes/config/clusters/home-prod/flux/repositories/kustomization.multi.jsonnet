@@ -6,18 +6,20 @@ local kust = k8s.config.kustomize.v1beta1.kustomization;
 local fluxKust = flux.toolkit.kustomize.v1beta2.kustomization;
 
 kust.new + kust.withNamespace('flux-system') + kust.withResources([
-    '../../../../../common/flux/repositories/git',
-    ['home-k8s', gr.new('home-k8s')
-        + gr.withInterval('1m0s')
-        + gr.withUrl('https://github.com/remi-gelinas/home-k8s.git')
-        + gr.withIgnore(
-            |||
-                /*
-                !/kubernetes/_gen/common
-                !/kubernetes/_gen/clusters/home-prod
-            |||
-        )
-        + gr.withBranch('trunk')
-    ],
-    '../../../../../common/flux/repositories/helm'
+  '../../../../../common/flux/repositories/git',
+  [
+    'home-k8s',
+    gr.new('home-k8s')
+    + gr.withInterval('1m0s')
+    + gr.withUrl('https://github.com/remi-gelinas/home-k8s.git')
+    + gr.withIgnore(
+      |||
+        /*
+        !/kubernetes/_gen/common
+        !/kubernetes/_gen/clusters/home-prod
+      |||
+    )
+    + gr.withBranch('trunk'),
+  ],
+  '../../../../../common/flux/repositories/helm',
 ])

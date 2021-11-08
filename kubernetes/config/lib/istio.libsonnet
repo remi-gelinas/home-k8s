@@ -1,0 +1,1 @@
+import 'istio.io/main.libsonnet'

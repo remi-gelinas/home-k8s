@@ -1,9 +1,8 @@
-# GENERATED - DO NOT EDIT
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: flux-system
 resources:
-- ../../../../../common/flux/repositories/git
-- home-k8s.yaml
-- ../../../../../common/flux/repositories/helm
+    - ../../../../../common/flux/repositories/git
+    - home-k8s.yaml
+    - ../../../../../common/flux/repositories/helm
