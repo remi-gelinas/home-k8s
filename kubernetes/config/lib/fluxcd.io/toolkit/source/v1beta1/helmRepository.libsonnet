@@ -1,3 +1,5 @@
+local versionRepo = './main.libsonnet';
+
 local apiVersion = 'source.toolkit.fluxcd.io/v1beta1';
 local kind = 'HelmRepository';
 

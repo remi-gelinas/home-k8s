@@ -7,10 +7,7 @@
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
   "commitMessageSuffix": "",
-  "rebaseWhen": "conflicted",
-  "kubernetes": {
-    "fileMatch": ["kubernetes/.+\\.yaml$"]
-  },
+  "rebaseWhen": "behind-base-branch",
   "regexManagers": [
     /*
     * Helm Chart variable manager
@@ -19,7 +16,7 @@
     */
     {
       "fileMatch": [
-        "kubernetes/config/.+\\.yaml$"
+        "kubernetes/config/.+\\.jsonnet$"
       ],
       "matchStrings": [
         "helmChartVar registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*['\"](?<currentValue>.*?)['\"]"
@@ -27,19 +24,24 @@
       "datasourceTemplate": "helm"
     },
     /*
-    * CRD manager: istio
+    * Github Release variable manager
+    * Manages Github release version updates for Jsonnet local variables.
+    * Example: local repoTag = 'v1.6.1';
     */
     {
       "fileMatch": [
-        "kubernetes/common/infrastructure/istio/crds.yaml"
+        "kubernetes/config/.+\\.jsonnet$"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\s(?<currentValue>.*)",
+        "githubReleaseVar repo=(?<depName>.*?)\\n.*['\\\"](?<currentValue>.*?)['\\\"]"
       ],
-      "datasourceTemplate": "helm"
-    },
+      "datasourceTemplate": "github-releases"
+    }
   ],
   "packageRules": [
+    /**
+    *  Helm Releases
+    */
     {
       "matchDatasources": ["helm"],
       "semanticCommitScope": "charts",
@@ -70,10 +72,39 @@
       "automerge": true,
       "automergeType": "branch"
     },
+
+    /**
+    *  Github Releases
+    */
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["base", "istiod"],
-      "automerge": false
+      "matchDatasources": ["github-releases"],
+      "semanticCommitScope": "releases",
+      "separateMinorPatch": true,
+      "ignoreDeprecated": true
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "feat(releases): ",
+      "labels": ["renovate/github-releases", "dependencies/major"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["minor"],
+      "commitMessagePrefix": "feat(releases): ",
+      "labels": ["renovate/github-releases", "dependencies/minor"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["patch"],
+      "commitMessagePrefix": "fix(releases): ",
+      "labels": ["renovate/github-releases", "dependencies/patch"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "automergeType": "branch"
     }
   ]
 }

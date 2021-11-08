@@ -1,0 +1,13 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: home-k8s
+spec:
+  ignore: "/*\r\n!/kubernetes/_gen/common\r\n!/kubernetes/_gen/clusters/home-prod\r\
+    \n"
+  interval: 1m0s
+  ref:
+    branch: trunk
+  url: https://github.com/remi-gelinas/home-k8s.git

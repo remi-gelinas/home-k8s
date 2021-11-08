@@ -1,7 +1,8 @@
 local fluxlib = import 'flux.libsonnet';
 local helmRepo = fluxlib.toolkit.source.v1beta1.helmRepository;
+local common = import 'common.libsonnet';
 
-local apiVersion = 'helm.toolkit.fluxcd.io/v2beta1';
+local apiVersion = 'helm.toolkit.fluxcd.io/%s' % common.version;
 local kind = 'HelmRelease';
 
 local chartSpec(obj) = {

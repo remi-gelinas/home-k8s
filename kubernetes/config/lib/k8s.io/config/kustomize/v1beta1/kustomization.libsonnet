@@ -1,3 +1,8 @@
+local common = import 'common.libsonnet';
+
+local apiVersion = 'kustomize.config.k8s.io/%s' % common.version;
+local kind = 'Kustomization';
+
 local pickIfObject(arr) = std.isObject(arr[1]);
 
 local _genResource(resource) =
@@ -16,8 +21,8 @@ local addGenResourceArray(arr) =
 {
   new: {
     kustomization+: {
-      apiVersion: 'kustomize.config.k8s.io/v1beta1',
-      kind: 'Kustomization',
+      apiVersion: apiVersion,
+      kind: kind,
     },
   },
   withNamespace(namespace): {

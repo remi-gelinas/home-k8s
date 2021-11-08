@@ -1,4 +1,6 @@
-local apiVersion = 'source.toolkit.fluxcd.io/v1beta1';
+local common = import 'common.libsonnet';
+
+local apiVersion = 'source.toolkit.fluxcd.io/%s' % common.version;
 local kind = 'GitRepository';
 
 {
