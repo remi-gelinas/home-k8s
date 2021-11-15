@@ -1,18 +1,19 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: kiali
+    name: kiali
 spec:
-  chart:
-    spec:
+    chart:
+        spec:
       # renovate: registryUrl=https://kiali.org/helm-charts
-      chart: kiali-server
-      version: 1.42.0
-      sourceRef:
-        kind: HelmRepository
-        name: kiali
-        namespace: flux-system
-  valuesFrom:
-    - kind: ConfigMap
-      name: kiali-values
-  interval: 10m0s
+            chart: kiali-server
+            version: 1.42.0
+            sourceRef:
+                kind: HelmRepository
+                name: kiali
+                namespace: fluxcd.io-system
+    valuesFrom:
+        - kind: ConfigMap
+          name: kiali-values
+    interval: 10m0s

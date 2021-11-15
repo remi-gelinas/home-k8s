@@ -3,3 +3,6 @@
 
 .gitconfig
 .idea
+
+# Python
+**/__pycache__

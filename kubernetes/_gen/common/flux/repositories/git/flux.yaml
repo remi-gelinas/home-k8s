@@ -1,0 +1,13 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: flux
+  namespace: flux-system
+spec:
+  ignore: "/*\n!/manifests\n"
+  interval: 10m0s
+  ref:
+    tag: v0.19.0
+  url: https://github.com/fluxcd/flux2

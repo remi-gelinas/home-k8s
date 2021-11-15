@@ -7,62 +7,44 @@
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
   "commitMessageSuffix": "",
-  "rebaseWhen": "conflicted",
-  "kubernetes": {
-    "fileMatch": ["kubernetes/.+\\.yaml$"]
-  },
+  "rebaseWhen": "behind-base-branch",
+  "reviewersFromCodeOwners": true,
   "regexManagers": [
-
     /*
-    *  HelmRelease manager
+    * Helm Chart variable manager
+    * Manages Helm chart version updates for Jsonnet local variables.
+    * Example: local chartTag = 'v1.6.1';
     */
     {
       "fileMatch": [
-        "kubernetes/.+\\.yaml$"
+        "kubernetes/config/.+\\.jsonnet$",
+        "kubernetes/config/.+\\.libsonnet$"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?)\\n *chart: (?<depName>.*?)\\n *version: (?<currentValue>.*)\\n"
+        "helmChartVar registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*['\"](?<currentValue>.*?)['\"]"
       ],
       "datasourceTemplate": "helm"
     },
     /*
-    * CRD manager: cert-manager
+    * Github Release variable manager
+    * Manages Github release version updates for Jsonnet local variables.
+    * Example: local repoTag = 'v1.6.1';
     */
     {
       "fileMatch": [
-        "kubernetes/common/infrastructure/cert-manager/crds/.+\\.yaml$"
+        "kubernetes/config/.+\\.jsonnet$",
+        "kubernetes/config/.+\\.libsonnet$"
       ],
       "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*\\/(?<currentValue>.*?)\\/"
+        "githubReleaseVar repo=(?<depName>.*?)\\n.*['\"](?<currentValue>.*?)['\"]"
       ],
-      "datasourceTemplate": "helm"
-    },
-    /*
-    * CRD manager: emissary-ingress
-    */
-    {
-      "fileMatch": [
-        "kubernetes/common/infrastructure/emissary-ingress/crds.yaml"
-      ],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\schart-v(?<currentValue>.*)"
-      ],
-      "datasourceTemplate": "helm"
-    },
-    /*
-    * CRD manager: istio
-    */
-    {
-      "fileMatch": [
-        "kubernetes/common/infrastructure/istio/crds.yaml"
-      ],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n\\s*?tag:\\s(?<currentValue>.*)",
-      ],
-      "datasourceTemplate": "helm"
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
+    /**
+    *  Helm Releases
+    */
     {
       "matchDatasources": ["helm"],
       "semanticCommitScope": "charts",
@@ -93,10 +75,39 @@
       "automerge": true,
       "automergeType": "branch"
     },
+
+    /**
+    *  Github Releases
+    */
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["base", "istiod"],
-      "automerge": false
+      "matchDatasources": ["github-releases"],
+      "semanticCommitScope": "releases",
+      "separateMinorPatch": true,
+      "ignoreDeprecated": true
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "feat(releases): ",
+      "labels": ["renovate/github-releases", "dependencies/major"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["minor"],
+      "commitMessagePrefix": "feat(releases): ",
+      "labels": ["renovate/github-releases", "dependencies/minor"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["patch"],
+      "commitMessagePrefix": "fix(releases): ",
+      "labels": ["renovate/github-releases", "dependencies/patch"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "automergeType": "branch"
     }
   ]
 }

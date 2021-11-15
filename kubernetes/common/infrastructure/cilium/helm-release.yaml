@@ -1,20 +1,21 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: cilium
+    name: cilium
 spec:
-  chart:
-    spec:
+    chart:
+        spec:
       # renovate: registryUrl=https://helm.cilium.io/
-      chart: cilium
-      version: 1.10.5
-      sourceRef:
-        kind: HelmRepository
-        name: cilium
-        namespace: flux-system
-  upgrade:
-    force: true
-  valuesFrom:
-    - kind: ConfigMap
-      name: cilium-infrastructure-values
-  interval: 10m0s
+            chart: cilium
+            version: 1.10.5
+            sourceRef:
+                kind: HelmRepository
+                name: cilium
+                namespace: fluxcd.io-system
+    upgrade:
+        force: true
+    valuesFrom:
+        - kind: ConfigMap
+          name: cilium-infrastructure-values
+    interval: 10m0s

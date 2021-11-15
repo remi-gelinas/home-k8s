@@ -1,4 +1,5 @@
+---
 deployment:
-  instance_name: kiali
+    instance_name: kiali
 auth:
-  strategy: anonymous
+    strategy: anonymous

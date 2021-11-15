@@ -1,29 +1,30 @@
-apiVersion: getambassador.io/v3alpha1
-kind: Host
-metadata:
-  name: gelinas-cloud-apex
-spec:
-  hostname: gelinas.cloud
-  tlsSecret:
-    name: gelinas-cloud-tls
-  selector:
-    matchLabels:
-      host: gelinas-cloud
-  requestPolicy:
-    insecure:
-      action: Redirect
 ---
 apiVersion: getambassador.io/v3alpha1
 kind: Host
 metadata:
-  name: gelinas-cloud-subdomains
+    name: gelinas-cloud-apex
 spec:
-  hostname: "*.gelinas.cloud"
-  tlsSecret:
-    name: gelinas-cloud-tls
-  selector:
-    matchLabels:
-      host: gelinas-cloud-subdomain
-  requestPolicy:
-    insecure:
-      action: Redirect
+    hostname: gelinas.cloud
+    tlsSecret:
+        name: gelinas-cloud-tls
+    selector:
+        matchLabels:
+            host: gelinas-cloud
+    requestPolicy:
+        insecure:
+            action: Redirect
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Host
+metadata:
+    name: gelinas-cloud-subdomains
+spec:
+    hostname: '*.gelinas.cloud'
+    tlsSecret:
+        name: gelinas-cloud-tls
+    selector:
+        matchLabels:
+            host: gelinas-cloud-subdomain
+    requestPolicy:
+        insecure:
+            action: Redirect

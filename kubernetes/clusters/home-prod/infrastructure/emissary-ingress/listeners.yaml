@@ -1,23 +1,24 @@
-apiVersion: getambassador.io/v3alpha1
-kind: Listener
-metadata:
-  name: http-listener
-spec:
-  port: 80
-  protocol: HTTPS
-  securityModel: XFP
-  hostBinding:
-    namespace:
-      from: SELF
 ---
 apiVersion: getambassador.io/v3alpha1
 kind: Listener
 metadata:
-  name: https-listener
+    name: http-listener
 spec:
-  port: 443
-  protocol: HTTPS
-  securityModel: XFP
-  hostBinding:
-    namespace:
-      from: SELF
+    port: 80
+    protocol: HTTPS
+    securityModel: XFP
+    hostBinding:
+        namespace:
+            from: SELF
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Listener
+metadata:
+    name: https-listener
+spec:
+    port: 443
+    protocol: HTTPS
+    securityModel: XFP
+    hostBinding:
+        namespace:
+            from: SELF

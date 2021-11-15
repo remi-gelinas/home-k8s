@@ -1,0 +1,57 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: istio-operator
+  namespace: istio-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: istio-operator
+  template:
+    metadata:
+      labels:
+        name: istio-operator
+    spec:
+      containers:
+      - command:
+        - operator
+        - server
+        env:
+        - name: WATCH_NAMESPACE
+          value: istio-system
+        - name: LEADER_ELECTION_NAMESPACE
+          value: istio-operator
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: OPERATOR_NAME
+          value: istio-operator
+        - name: WAIT_FOR_RESOURCES_TIMEOUT
+          value: 300s
+        - name: REVISION
+          value: ''
+        image: docker.io/querycapistio/operator:1.11.4-distroless
+        imagePullPolicy: IfNotPresent
+        name: istio-operator
+        resources:
+          limits:
+            cpu: 200m
+            memory: 256Mi
+          requests:
+            cpu: 50m
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsGroup: 1337
+          runAsNonRoot: true
+          runAsUser: 1337
+      serviceAccountName: istio-operator

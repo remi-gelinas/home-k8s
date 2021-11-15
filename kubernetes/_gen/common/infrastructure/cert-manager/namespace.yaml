@@ -1,0 +1,6 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager

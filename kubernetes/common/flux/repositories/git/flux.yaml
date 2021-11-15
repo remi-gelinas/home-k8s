@@ -1,14 +1,15 @@
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: flux
-  namespace: flux-system
+    name: flux
+    namespace: fluxcd.io-system
 spec:
-  interval: 10m0s
-  ref:
+    interval: 10m0s
+    ref:
     # renovate: datasource=github-releases depName=fluxcd/flux2
-    tag: v0.19.0
-  url: https://github.com/fluxcd/flux2
-  ignore: |
-    /*
-    !/manifests
+        tag: v0.19.0
+    url: https://github.com/fluxcd/flux2
+    ignore: |
+        /*
+        !/manifests

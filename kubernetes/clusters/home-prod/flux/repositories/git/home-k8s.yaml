@@ -1,14 +1,15 @@
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: home-k8s
-  namespace: flux-system
+    name: home-k8s
+    namespace: fluxcd.io-system
 spec:
-  interval: 1m0s
-  ref:
-    branch: trunk
-  url: https://github.com/remi-gelinas/home-k8s.git
-  ignore: |
-    /*
-    !/kubernetes/common
-    !/kubernetes/clusters/home-prod
+    interval: 1m0s
+    ref:
+        branch: trunk
+    url: https://github.com/remi-gelinas/home-k8s.git
+    ignore: |
+        /*
+        !/kubernetes/common
+        !/kubernetes/clusters/home-prod

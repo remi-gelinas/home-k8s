@@ -1,0 +1,3 @@
+{
+  apexDomain: 'gelinas.cloud',
+}

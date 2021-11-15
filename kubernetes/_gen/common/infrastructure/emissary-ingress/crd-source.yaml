@@ -1,0 +1,13 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: emissary-ingress-source
+  namespace: flux-system
+spec:
+  ignore: "/*\n!/charts/emissary-ingress/crds\n"
+  interval: 30m
+  ref:
+    tag: chart-v7.1.9
+  url: https://github.com/emissary-ingress/emissary.git

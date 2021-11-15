@@ -1,0 +1,13 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: istio-operator
+resources:
+- namespace.yaml
+- service_account.yaml
+- cluster_role.yaml
+- cluster_role_binding.yaml
+- service.yaml
+- deployment.yaml
+- https://raw.githubusercontent.com/istio/istio/1.11.4/manifests/charts/istio-operator/crds/crd-operator.yaml

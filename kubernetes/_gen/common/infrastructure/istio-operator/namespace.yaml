@@ -1,0 +1,9 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    istio-injection: disabled
+    istio-operator-managed: Reconcile
+  name: istio-operator
