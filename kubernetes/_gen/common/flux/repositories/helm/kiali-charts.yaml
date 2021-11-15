@@ -1,9 +1,10 @@
+# GENERATED - DO NOT EDIT
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-    name: kiali
-    namespace: flux-system
+  name: kiali
+  namespace: flux-system
 spec:
-    interval: 10m0s
-    url: https://kiali.org/helm-charts
+  interval: 10m0s
+  url: https://kiali.org/helm-charts

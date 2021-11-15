@@ -1,8 +1,9 @@
+# GENERATED - DO NOT EDIT
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: flux-system
 resources:
-    - cluster-repositories.yaml
-    - manage-flux.yaml
-    - cluster-orchestration.yaml
+- cluster-repositories.yaml
+- manage-flux.yaml
+- cluster-orchestration.yaml

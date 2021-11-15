@@ -1,4 +1,6 @@
 ---
+ci:
+  submodules: true
 repos:
     - repo: https://github.com/psf/black
       rev: 21.10b0
@@ -23,28 +25,6 @@ repos:
             language_version: 3.10.0
             additional_dependencies:
                 - ruamel.yaml
-            always_run: true
-            pass_filenames: false
-
-    - repo: https://github.com/adrienverge/yamllint.git
-      rev: v1.26.3
-      hooks:
-          - id: yamllint
-            args: [--format, parsable, --strict]
-
-    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-      rev: 0.1.0
-      hooks:
-          - id: yamlfmt
-
-    - repo: local
-      hooks:
-          - id: add-manifests
-            name: Add generated manifests to commit
-            description: This hook adds the generated manifests to the commit in context.
-            entry: scripts/add_gen.py
-            language: python
-            language_version: 3.10.0
             always_run: true
             pass_filenames: false
 

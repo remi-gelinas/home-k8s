@@ -1,3 +1,3 @@
 {
-    version: 'v2beta1',
+  version: 'v2beta1',
 }

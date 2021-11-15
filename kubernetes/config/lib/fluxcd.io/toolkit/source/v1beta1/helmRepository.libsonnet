@@ -11,11 +11,12 @@ local kind = 'HelmRepository';
     withName(name): { metadata+: { name: name } },
     withNamespace(namespace): { metadata+: { namespace: namespace } },
   },
-  new(name): {
-               apiVersion: apiVersion,
-               kind: kind,
-             } + self.metadata.withName(name=name)
-             + self.withInterval(),
+  new(name, namespace='flux-system'): {
+                                        apiVersion: apiVersion,
+                                        kind: kind,
+                                      } + self.metadata.withName(name=name)
+                                      + self.metadata.withNamespace(namespace)
+                                      + self.withInterval(),
   withInterval(interval='10m0s'): {
     spec+: {
       interval: interval,

@@ -1,0 +1,16 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: istio-operator
+  name: istio-operator
+spec:
+  ports:
+  - name: http-metrics
+    port: 8383
+    protocol: TCP
+    targetPort: 8383
+  selector:
+    name: istio-operator

@@ -9,6 +9,7 @@ import re
 from constants import repoRoot, outDir, baseDir, libDir
 
 yaml = YAML()
+yaml.indent(mapping=2, sequence=4, offset=2)
 
 
 def replacePaths(inPath, outPath):

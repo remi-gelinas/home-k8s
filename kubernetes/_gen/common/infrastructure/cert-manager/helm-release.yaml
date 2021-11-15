@@ -1,14 +1,15 @@
+# GENERATED - DO NOT EDIT
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-    name: cert-manager
+  name: cert-manager
 spec:
-    chart:
-        spec:
-            chart: cert-manager
-            sourceRef:
-                kind: HelmRepository
-                name: jetstack
-                namespace: flux-system
-            version: v1.6.1
+  chart:
+    spec:
+      chart: cert-manager
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack
+        namespace: flux-system
+      version: v1.6.1

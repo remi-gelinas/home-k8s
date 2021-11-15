@@ -9,7 +9,6 @@ local fluxRepoTag = 'v0.19.0';
 
 k.new + k.withNamespace('flux-system') + k.withResources([
   ['flux', gr.new('flux')
-           + gr.metadata.withNamespace('flux-system')
            + gr.withTag(fluxRepoTag)
            + gr.withUrl('https://github.com/fluxcd/flux2')
            + gr.withIgnore(

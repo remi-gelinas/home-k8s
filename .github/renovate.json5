@@ -8,6 +8,7 @@
   "commitMessageExtra": "to {{newVersion}}",
   "commitMessageSuffix": "",
   "rebaseWhen": "behind-base-branch",
+  "reviewersFromCodeOwners": true,
   "regexManagers": [
     /*
     * Helm Chart variable manager
@@ -16,7 +17,8 @@
     */
     {
       "fileMatch": [
-        "kubernetes/config/.+\\.jsonnet$"
+        "kubernetes/config/.+\\.jsonnet$",
+        "kubernetes/config/.+\\.libsonnet$"
       ],
       "matchStrings": [
         "helmChartVar registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\\n.*['\"](?<currentValue>.*?)['\"]"
@@ -30,10 +32,11 @@
     */
     {
       "fileMatch": [
-        "kubernetes/config/.+\\.jsonnet$"
+        "kubernetes/config/.+\\.jsonnet$",
+        "kubernetes/config/.+\\.libsonnet$"
       ],
       "matchStrings": [
-        "githubReleaseVar repo=(?<depName>.*?)\\n.*['\\\"](?<currentValue>.*?)['\\\"]"
+        "githubReleaseVar repo=(?<depName>.*?)\\n.*['\"](?<currentValue>.*?)['\"]"
       ],
       "datasourceTemplate": "github-releases"
     }

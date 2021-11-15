@@ -1,0 +1,3 @@
+{
+  clusterIssuer: (import 'clusterIssuer.libsonnet'),
+}

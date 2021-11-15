@@ -1,0 +1,21 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: istio-control-plane
+  namespace: istio-system
+spec:
+  components:
+    base:
+      enabled: true
+    pilot:
+      enabled: true
+  hub: docker.io/istio
+  profile: empty
+  tag: 1.11.4
+  values:
+    pilot:
+      env:
+        PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION: true
+        PILOT_ENABLE_WORKLOAD_ENTRY_HEALTHCHECKS: true
