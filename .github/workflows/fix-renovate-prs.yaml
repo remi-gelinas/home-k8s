@@ -1,0 +1,33 @@
+name: fix-renovate-prs
+
+on:
+  pull_request:
+    branches:
+      - trunk
+
+jobs:
+  fix-pr:
+    if: github.actor == 'renovate'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install Python
+        uses: actions/setup_python@v2
+        with:
+          python-version: 3.10
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Run pre-commit
+        run: pre-commit run
+
+      - name: Update pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "fix: add pre-commit changes"
