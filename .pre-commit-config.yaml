@@ -21,10 +21,7 @@ repos:
             name: Generate manifests
             description: This hook compiles Jsonnet manifests into raw YAML.
             entry: scripts/gen_configs.py
-            language: python
-            language_version: 3.10.0
-            additional_dependencies:
-                - ruamel.yaml
+            language: script
             always_run: true
             pass_filenames: false
 
