@@ -7,7 +7,7 @@ on:
 
 jobs:
   fix-pr:
-    if: github.actor == 'renovate'
+    if: github.actor == 'renovate[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
