@@ -42,4 +42,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "fix: add pre-commit changes"
+          base: ${{ github.head_ref }}
         if: always()
