@@ -7,11 +7,13 @@ local sec = k.core.v1.secret;
 
 local encryptedSecretData = import 'secret.sops.json';
 
-kust.new + kust.withNamespace('flux-system') + kust.withResources([
+local ns = 'cert-manager';
+
+kust.new + kust.withNamespace(ns) + kust.withResources([
   [
     'secret.sops',
     sec.new('cloudflare', data=encryptedSecretData.data)
-    + sec.metadata.withNamespace('cert-manager')
+    + sec.metadata.withNamespace(ns)
     + encryptedSecretData,
   ],
 ])
