@@ -13,4 +13,4 @@ spec:
         kind: HelmRepository
         name: datawire
         namespace: flux-system
-      version: 7.1.9
+      version: 7.1.10
