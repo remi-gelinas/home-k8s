@@ -12,5 +12,5 @@ spec:
             sourceRef:
                 kind: HelmRepository
                 name: jetstack
-                namespace: fluxcd.io-system
+                namespace: flux-system
     interval: 10m0s

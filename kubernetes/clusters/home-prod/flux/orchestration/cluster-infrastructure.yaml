@@ -3,7 +3,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
     name: cert-manager
-    namespace: fluxcd.io-system
+    namespace: flux-system
 spec:
     interval: 10m0s
     dependsOn:
@@ -19,7 +19,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
     name: emissary-ingress
-    namespace: fluxcd.io-system
+    namespace: flux-system
 spec:
     interval: 10m0s
     dependsOn:
