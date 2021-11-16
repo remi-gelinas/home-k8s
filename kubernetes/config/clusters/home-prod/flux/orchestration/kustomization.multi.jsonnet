@@ -19,6 +19,7 @@ kust.new + kust.withNamespace('flux-system') + kust.withResources([
     + fluxKust.withPath('./kubernetes/_gen/clusters/home-prod/infrastructure/cert-manager')
     + fluxKust.withPrune(true)
     + fluxKust.withWait(true)
-    + fluxKust.withGitSource('home-k8s'),
+    + fluxKust.withGitSource('home-k8s')
+    + fluxKust.withDependencies(['cert-manager-common']),
   ],
 ])

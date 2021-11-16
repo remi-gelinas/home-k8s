@@ -6,6 +6,8 @@ metadata:
   name: cert-manager
   namespace: flux-system
 spec:
+  dependsOn:
+  - cert-manager-common
   interval: 10m0s
   path: ./kubernetes/_gen/clusters/home-prod/infrastructure/cert-manager
   prune: true
