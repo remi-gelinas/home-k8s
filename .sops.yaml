@@ -1,7 +1,7 @@
 ---
 creation_rules:
     # Flux secrets
-    - path_regex: kubernetes/.*\.sops.ya?ml
+    - path_regex: kubernetes/.*\.sops.json
       encrypted_regex: ((?i)(pass|secret($|[^N])|key|token|^data$|^stringData))
       age: >-
           age16hx09qhepk5m55yqf8mseghqzsjzzxfu4d4qa59w5djj2tvhsq5qjcl2z8

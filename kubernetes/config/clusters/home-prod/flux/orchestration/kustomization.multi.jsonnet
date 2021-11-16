@@ -13,4 +13,12 @@ kust.new + kust.withNamespace('flux-system') + kust.withResources([
     + fluxKust.withWait(true)
     + fluxKust.withGitSource('home-k8s'),
   ],
+  [
+    'cert-manager',
+    fluxKust.new('cert-manager')
+    + fluxKust.withPath('./kubernetes/_gen/clusters/home-prod/infrastructure/cert-manager')
+    + fluxKust.withPrune(true)
+    + fluxKust.withWait(true)
+    + fluxKust.withGitSource('home-k8s'),
+  ],
 ])
