@@ -2,6 +2,12 @@ name: fix-renovate-prs
 
 on:
   pull_request:
+    types:
+      - assigned
+      - opened
+      - synchronize
+      - reopened
+      - edited
     branches:
       - trunk
 
@@ -42,6 +48,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "fix: add pre-commit changes"
-          base: ${{ github.head_ref }}
+          base: ${{ github.base_ref }}
           branch: ${{ github.head_ref }}
         if: always()
