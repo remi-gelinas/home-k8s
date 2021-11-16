@@ -19,6 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
+          ref: ${{ github.head_ref }}
           submodules: recursive
 
       - name: Install Python
@@ -44,10 +45,7 @@ jobs:
         run: pre-commit run
 
       - name: Update pull request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "fix: add pre-commit changes"
-          base: ${{ github.base_ref }}
-          branch: ${{ github.head_ref }}
         if: always()
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit-message: 'fix: add pre-commit changes'
