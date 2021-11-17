@@ -1,0 +1,8 @@
+# GENERATED - DO NOT EDIT
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+resources:
+- ./flux/repositories/git/home-k8s.yaml
+- deploy-cluster.yaml
