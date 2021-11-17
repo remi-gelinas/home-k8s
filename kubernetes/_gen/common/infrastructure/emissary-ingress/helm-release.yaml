@@ -14,3 +14,4 @@ spec:
         name: datawire
         namespace: flux-system
       version: 7.1.9
+  interval: 10m0s

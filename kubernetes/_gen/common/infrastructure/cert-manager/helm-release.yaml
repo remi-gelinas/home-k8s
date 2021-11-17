@@ -13,3 +13,4 @@ spec:
         name: jetstack
         namespace: flux-system
       version: v1.6.1
+  interval: 10m0s

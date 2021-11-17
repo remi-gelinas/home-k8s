@@ -24,7 +24,7 @@ local chartSpec(obj) = {
   new(name): {
     apiVersion: apiVersion,
     kind: kind,
-  } + self.metadata.withName(name=name),
+  } + self.metadata.withName(name=name) + self.withInterval('10m0s'),
   withHelmSource(name, namespace='flux-system'): chartSpec({
     sourceRef: {
       kind: helmRepo.kind,
@@ -38,5 +38,10 @@ local chartSpec(obj) = {
   withChartVersion(version): chartSpec({
     version: version,
   }),
+  withInterval(interval): {
+    spec+: {
+      interval: interval,
+    },
+  },
   mixin: self,
 }
