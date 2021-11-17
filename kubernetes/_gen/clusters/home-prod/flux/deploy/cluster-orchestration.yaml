@@ -11,8 +11,8 @@ spec:
     secretRef:
       name: sops-age
   dependsOn:
-  - cluster-repositories
-  - cluster-flux
+  - name: cluster-repositories
+  - name: cluster-flux
   interval: 10m0s
   path: ./kubernetes/_gen/clusters/home-prod/flux/orchestration
   prune: true

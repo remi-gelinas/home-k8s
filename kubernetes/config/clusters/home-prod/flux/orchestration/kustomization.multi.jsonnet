@@ -20,6 +20,8 @@ kust.new + kust.withNamespace('flux-system') + kust.withResources([
     + fluxKust.withPrune(true)
     + fluxKust.withWait(true)
     + fluxKust.withGitSource('home-k8s')
-    + fluxKust.withDependencies(['cert-manager-common']),
+    + fluxKust.withDependencies([
+      { name: 'cert-manager-common' },
+    ]),
   ],
 ])

@@ -30,8 +30,8 @@ kust.new + kust.withNamespace('flux-system') + kust.withResources([
     + fluxKust.withGitSource('home-k8s')
     + fluxKust.withDecryption()
     + fluxKust.withDependencies([
-      'cluster-repositories',
-      'cluster-flux',
+      { name: 'cluster-repositories' },
+      { name: 'cluster-flux' },
     ]),
   ],
 ])
