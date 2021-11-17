@@ -32,6 +32,25 @@ kust.new + kust.withNamespace('flux-system') + kust.withResources([
     + fluxKust.withDependencies([
       { name: 'cluster-repositories' },
       { name: 'cluster-flux' },
-    ]),
+    ])
+    + fluxKust.withPatch(
+      patch=|||
+        apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+        kind: Kustomization
+        metadata:
+            name: NOOP
+            namespace: NOOP
+        spec:
+            decryption:
+                provider: sops
+                secretRef:
+                    name: sops-age
+      |||,
+      target={
+        kind: 'Kustomization',
+        group: 'kustomize.toolkit.fluxcd.io',
+        version: 'v1beta2',
+      }
+    ),
   ],
 ])

@@ -14,6 +14,14 @@ spec:
   - name: cluster-repositories
   - name: cluster-flux
   interval: 10m0s
+  patches:
+  - patch: "apiVersion: kustomize.toolkit.fluxcd.io/v1beta2\nkind: Kustomization\n\
+      metadata:\n    name: NOOP\n    namespace: NOOP\nspec:\n    decryption:\n   \
+      \     provider: sops\n        secretRef:\n            name: sops-age\n"
+    target:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+      version: v1beta2
   path: ./kubernetes/_gen/clusters/home-prod/flux/orchestration
   prune: true
   sourceRef:

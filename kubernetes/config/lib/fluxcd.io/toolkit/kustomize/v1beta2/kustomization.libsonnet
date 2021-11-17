@@ -52,4 +52,12 @@ local kind = 'Kustomization';
       dependsOn+: deps,
     },
   },
+  withPatch(patch, target): {
+    spec+: {
+      patches+: [{
+        patch: patch,
+        target: target,
+      }],
+    },
+  },
 }
