@@ -6,7 +6,7 @@ metadata:
   name: home-k8s
   namespace: flux-system
 spec:
-  ignore: "/*\n!/kubernetes/_gen/common\n!/kubernetes/_gen/clusters/home-prod\n"
+  ignore: "/*\n!/kubernetes/_gen\n"
   interval: 1m0s
   ref:
     branch: trunk

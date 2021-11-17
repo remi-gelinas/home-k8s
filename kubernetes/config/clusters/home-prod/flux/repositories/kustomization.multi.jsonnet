@@ -15,8 +15,7 @@ kust.new + kust.withNamespace('flux-system') + kust.withResources([
     + gr.withIgnore(
       |||
         /*
-        !/kubernetes/_gen/common
-        !/kubernetes/_gen/clusters/home-prod
+        !/kubernetes/_gen
       |||
     )
     + gr.withBranch('trunk'),
