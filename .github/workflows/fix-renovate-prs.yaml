@@ -41,6 +41,12 @@ jobs:
           pip install pre-commit
           pip install ruamel.yaml
 
+      - name: Cache pre-commit environments
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-pre-commit-envs-${{ hashFiles('.pre-commit-config.yaml') }}
+          path: ~/.cache/pre-commit
+
       - name: Run pre-commit
         run: pre-commit run
 
