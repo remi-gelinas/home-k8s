@@ -40,7 +40,7 @@ def getManifests(files, extract):
         for manifestList in [
             extract(
                 filePath,
-                json.loads(subprocess.check_output(jsonnetCommand + [filePath])),
+                json.loads(subprocess.check_output([*jsonnetCommand, filePath])),
             )
             for filePath in files
         ]

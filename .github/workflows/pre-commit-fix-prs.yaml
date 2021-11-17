@@ -1,4 +1,4 @@
-name: fix-renovate-prs
+name: pre-commit-fix-prs
 
 on:
   pull_request:
@@ -12,8 +12,7 @@ on:
       - trunk
 
 jobs:
-  fix-pr:
-    if: github.actor == 'renovate[bot]'
+  check-pr:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -50,7 +49,7 @@ jobs:
       - name: Run pre-commit
         run: pre-commit run
 
-      - name: Update pull request
+      - name: Update pull request if needed
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
