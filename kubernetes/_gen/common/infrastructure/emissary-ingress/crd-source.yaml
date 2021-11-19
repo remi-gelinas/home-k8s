@@ -9,5 +9,5 @@ spec:
   ignore: "/*\n!/charts/emissary-ingress/crds\n"
   interval: 30m
   ref:
-    tag: chart-v7.1.9
+    tag: chart-v7.1.10
   url: https://github.com/emissary-ingress/emissary.git
