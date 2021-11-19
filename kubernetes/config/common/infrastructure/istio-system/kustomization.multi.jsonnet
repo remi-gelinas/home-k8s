@@ -5,7 +5,6 @@ local k8s = import 'k8s.io.libsonnet';
 local ns = k.core.v1.namespace;
 local kust = k8s.config.kustomize.v1beta1.kustomization;
 local gr = flux.toolkit.source.v1beta1.gitRepository;
-local hr = flux.toolkit.helm.v2beta1.helmRelease;
 local fluxKust = flux.toolkit.kustomize.v1beta2.kustomization;
 
 local nsName = (import 'config.libsonnet').namespace;
