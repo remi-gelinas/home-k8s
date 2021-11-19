@@ -1,4 +1,5 @@
-name: pre-commit-fix-prs
+---
+name: Run pre-commit hooks on Pull Requests
 
 on:
   pull_request:
