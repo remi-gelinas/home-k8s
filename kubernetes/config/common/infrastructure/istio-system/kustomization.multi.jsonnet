@@ -11,7 +11,7 @@ local fluxKust = flux.toolkit.kustomize.v1beta2.kustomization;
 local nsName = (import 'config.libsonnet').namespace;
 
 // renovate: githubReleaseVar repo=istio/istio
-local versionTag = '1.11.4';
+local versionTag = '1.12.0';
 
 kust.new + kust.withNamespace(nsName) + kust.withResources([
   ['namespace', ns.new(nsName)],
