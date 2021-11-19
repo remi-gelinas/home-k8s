@@ -89,7 +89,7 @@ def get_releases(file):
 
 
 def add_helm_repo(name, repo):
-    subprocess.run([sys.argv[3], "repo", "add", name, repo])
+    subprocess.run([sys.argv[3], "repo", "add", name, repo], stdout=subprocess.DEVNULL)
 
 
 def template_helm_release(chart, repo, version, values=None):
@@ -236,10 +236,8 @@ if __name__ == "__main__":
         diff = diff_release(release)
 
         if diff != "":
-            message = message + f"'```diff'$'\n'\"{diff}\"$'\n''```'"
+            message = message + f"\n```diff\n{diff}\n```"
         else:
-            message = (
-                message + f"'```'$'\n'\"No changes detected in resources\"$'\n''```"
-            )
+            message = message + f"\n```No changes detected in resources```"
 
         print(message)
