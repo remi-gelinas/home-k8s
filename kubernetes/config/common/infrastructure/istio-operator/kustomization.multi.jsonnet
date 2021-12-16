@@ -16,7 +16,7 @@ local clusterRoleRules = import 'clusterRoleRules.libsonnet';
 local deploymentName = 'istio-operator';
 
 // renovate: githubReleaseVar repo=istio/istio
-local operatorVersionTag = '1.12.0';
+local operatorVersionTag = '1.12.1';
 
 kust.new + kust.withNamespace(deploymentName) + kust.withResources([
   ['namespace', ns.new(deploymentName) + ns.metadata.withLabels({
