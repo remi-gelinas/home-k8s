@@ -9,5 +9,5 @@ spec:
   ignore: "/*\n!/manifests\n"
   interval: 10m0s
   ref:
-    tag: v0.23.0
+    tag: v0.24.0
   url: https://github.com/fluxcd/flux2
