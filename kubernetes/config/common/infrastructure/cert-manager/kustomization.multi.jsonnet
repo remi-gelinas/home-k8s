@@ -10,7 +10,7 @@ local fluxKust = flux.toolkit.kustomize.v1beta2.kustomization;
 local chartName = 'cert-manager';
 
 // renovate: helmChartVar registryUrl=https://charts.jetstack.io chart=cert-manager
-local chartTag = 'v1.6.1';
+local chartTag = 'v1.6.2';
 
 kust.new + kust.withNamespace(chartName) + kust.withResources([
   'https://github.com/jetstack/cert-manager/releases/download/%s/cert-manager.crds.yaml' % chartTag,
