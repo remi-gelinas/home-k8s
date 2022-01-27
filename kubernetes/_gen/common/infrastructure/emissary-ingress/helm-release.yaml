@@ -13,5 +13,5 @@ spec:
         kind: HelmRepository
         name: datawire
         namespace: flux-system
-      version: 7.2.0
+      version: 7.2.2
   interval: 10m0s
