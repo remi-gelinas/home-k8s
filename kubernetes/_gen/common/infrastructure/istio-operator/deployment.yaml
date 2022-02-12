@@ -34,7 +34,7 @@ spec:
           value: 300s
         - name: REVISION
           value: ''
-        image: docker.io/querycapistio/operator:1.12.0-distroless
+        image: docker.io/querycapistio/operator:1.13.0-distroless
         imagePullPolicy: IfNotPresent
         name: istio-operator
         resources:

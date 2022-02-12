@@ -13,7 +13,7 @@ spec:
       enabled: true
   hub: docker.io/istio
   profile: empty
-  tag: 1.12.0
+  tag: 1.13.0
   values:
     pilot:
       env:
