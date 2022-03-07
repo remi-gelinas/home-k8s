@@ -17,7 +17,7 @@ jobs:
         outputs:
             files: ${{ steps.extract.outputs.files }}
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - uses: dorny/paths-filter@v2
               id: filter
               with:
@@ -63,13 +63,13 @@ jobs:
             - uses: azure/setup-helm@v1
               id: install_helm
 
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
               with:
                   ref: ${{ github.event.pull_request.base.sha }}
                   path: live
                   submodules: recursive
 
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
               with:
                   ref: ${{ github.event.pull_request.head.sha }}
                   path: pr
