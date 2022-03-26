@@ -80,7 +80,7 @@ jobs:
                   message=$(python live/scripts/diff_helm_releases.py live/${{ matrix.file }} pr/${{ matrix.file }} ${{ steps.install_helm.outputs.helm-path }})
                   echo "::set-output name=message::$(echo "$message" | jq --raw-input --slurp)"
 
-            - uses: peter-evans/create-or-update-comment@v1
+            - uses: peter-evans/create-or-update-comment@v2
               with:
                   issue-number: ${{ github.event.pull_request.number }}
                   body: ${{ fromJSON(steps.diff.outputs.message) }}
