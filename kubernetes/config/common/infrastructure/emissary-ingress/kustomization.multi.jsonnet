@@ -12,7 +12,7 @@ local chartName = 'emissary-ingress';
 local sourceName = 'emissary-ingress-source';
 
 // renovate: helmChartVar registryUrl=https://app.getambassador.io chart=emissary-ingress
-local chartTag = '7.2.0';
+local chartTag = '8.6.0';
 
 kust.new + kust.withNamespace('flux-system') + kust.withResources([
   ['crd-source', gr.new(sourceName)
